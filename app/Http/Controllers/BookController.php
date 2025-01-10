@@ -19,7 +19,7 @@ class BookController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'author' => 'required|string|max:255',
-            'sypnosis' => 'required|string|max:255',
+            'synopsis' => 'required|string|max:255',
     
             'year' => 'required|string',
             'genre' => 'required|string|max:255',
@@ -31,7 +31,7 @@ class BookController extends Controller
         $newBook = new Book();
         $newBook->name = $data['name'];
         $newBook->author = $data['author'];
-        $newBook->sypnosis = $data['sypnosis'];
+        $newBook->sypnosis = $data['synopsis'];
         $newBook->year = $data['year'];
         $newBook->genre = $data['genre'];
 
@@ -39,7 +39,6 @@ class BookController extends Controller
         // $newBook->image = 'images/'.$imageName;
 
         $newBook->save();
-        echo "<script>console.log('Debug Objects: " . $data . "' );</script>";
         return redirect(route('admin.dashboard'))->with('success', 'Product created successfully.');
     }
 }
