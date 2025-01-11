@@ -30,9 +30,10 @@ Route::middleware(['auth','userMiddleware'])->group(function(){
 // Admin Route
 Route::middleware(['auth','adminMiddleware'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class,'index'])->name('admin.dashboard');
+    // Route::get('/admin/dashboard', [AdminController::class,'showBook'])->name('admin.showBook');
     Route::get('/admin/addbook', [BookController::class,'index'])->name('bookIndex');
 });
     
-    // Route::get('/admin/addbook', [BookController::class,'create'])->name('books.create');
     Route::post('/admin/addbook', [BookController::class,'store'])->name('books.store');
-    // Route::get('/admin/dashboard', [BookController::class,'show'])->name('books.show');
+    Route::get('/admin/book/{id}', [BookController::class, 'show'])->name('books.show');
+    

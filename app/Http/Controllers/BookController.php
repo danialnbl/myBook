@@ -11,6 +11,11 @@ class BookController extends Controller
         return view('admin/addbook');
     }
 
+    public function show($id){
+        $book = Book::findOrFail($id);
+        return view('books.show', compact('book'));
+    }
+
     public function create(){
         return view('books.create');
     }
@@ -20,13 +25,13 @@ class BookController extends Controller
             'name' => 'required|string|max:255',
             'author' => 'required|string|max:255',
             'sypnosis' => 'required|string|max:255',
-    
+            'image' => 'required',
             'year' => 'required|string',
             'genre' => 'required|string|max:255',
             
         ]);
-        // $imageName = time().'.'.$request->image->extension();
-        // $request->image->move(public_path('images'), $imageName);
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
 
         $newBook = new Book();
         $newBook->name = $data['name'];
@@ -36,7 +41,7 @@ class BookController extends Controller
         $newBook->genre = $data['genre'];
 
         
-        // $newBook->image = 'images/'.$imageName;
+        $newBook->image = 'images/'.$imageName;
 
         $newBook->save();
         return redirect(route('admin.dashboard'))->with('success', 'Product created successfully.');
