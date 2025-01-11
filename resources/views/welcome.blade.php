@@ -36,13 +36,27 @@
         </div>
     </nav>
 
-    <header class="bg-primary text-white text-center py-5">
-        <div class="container">
-            <h1>Welcome to myBook</h1>
-            <p class="lead">Discover and share your thoughts on your favorite books</p>
-            <a href="/register" class="btn btn-light btn-lg mt-3">Get Started</a>
+    {{-- <div class="d-flex flex-wrap gap-4 justify-content-start">
+        @foreach($books as $book)
+            <div class="card" style="width: 12rem;">
+                <img src="{{ $book->image_url }}" class="card-img-top" alt="{{ $book->title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $book->title }}</h5>
+                    <p class="card-text">{{ Str::limit($book->description, 50) }}</p>
+                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-primary btn-sm">Details</a>
+                </div>
+            </div>
+        @endforeach
+    </div> --}}
+
+    <div class="relative bg-cover bg-center" style="background-image: url('https://collegeinfogeek.com/wp-content/uploads/2018/11/Essential-Books.jpg');height: 20vh;">
+        <div class="absolute inset-0 bg-black opacity-50"></div> 
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-bold text-white mb-4">Welcome to myBook</h1>
+            <p class="text-lg text-white">Discover, review, and share your love for books with our community.</p>
         </div>
-    </header>
+    </div>
+
 
     <section class="py-5">
         <div class="container text-center">
@@ -76,9 +90,6 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>&copy; 2025 myBook. All Rights Reserved.</p>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

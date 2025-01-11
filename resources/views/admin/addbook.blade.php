@@ -34,17 +34,17 @@
 
                     <!-- Synopsis -->
                     <div class="mb-4">
-                        <label for="synopsis" class="block text-sm font-medium text-gray-700">Synopsis</label>
+                        <label for="sypnosis" class="block text-sm font-medium text-gray-700">Synopsis</label>
                         <textarea 
-                            name="synopsis" 
-                            id="synopsis" 
+                            name="sypnosis" 
+                            id="sypnosis" 
                             rows="5" 
                             class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" 
                             required></textarea>
                     </div>
 
                     <!-- Upload Image -->
-                    {{-- <div class="mb-4">
+                    <div class="mb-4">
                         <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
                         <input 
                             type="file" 
@@ -52,7 +52,7 @@
                             id="image" 
                             class="mt-1 block w-full text-gray-700" 
                             required>
-                    </div> --}}
+                    </div>
 
                     <!-- Year -->
                     <div class="mb-4">

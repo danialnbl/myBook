@@ -35,3 +35,4 @@ Route::middleware(['auth','adminMiddleware'])->group(function(){
     
     // Route::get('/admin/addbook', [BookController::class,'create'])->name('books.create');
     Route::post('/admin/addbook', [BookController::class,'store'])->name('books.store');
+    // Route::get('/admin/dashboard', [BookController::class,'show'])->name('books.show');
