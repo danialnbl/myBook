@@ -4,6 +4,13 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
+    <div>
+        @if (session()->has('success'))
+            <div>
+                {{session('success')}}
+            </div>
+        @endif
+    </div>
     <a href="{{ route('bookIndex') }}" class="btn btn-primary">
         Add New Book
     </a>
@@ -16,12 +23,17 @@
                     <tr>
                         @foreach ($chunk as $book)
                             <td>
-                                <a href="{{ route('books.show', ['id' => $book->book_id]) }}" style="text-decoration: none; color: inherit;">
+                                
                                     <div style="text-align: center;">
                                         <img src="{{ asset($book->image) }}" alt="{{ $book->name }}" style="height:40vh;width:25vh; display: block; margin: 0 auto;">
                                         <div>{{ $book->name }}</div>
+                                        <a href="{{ route('books.edit', ['books' => $book]) }}" style="text-decoration: none; color: inherit;">Edit</a>
+                                        <form method="post" action="{{route('books.destroy',['books' => $book])}}">
+                                            @csrf
+                                            @method('delete')
+                                            <input type="submit" value="Delete">
+                                        </form>
                                     </div>
-                                </a>
                             </td>
                         @endforeach
                     </tr>
@@ -29,13 +41,4 @@
             </tbody>
         </table>
     </div>
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div> --}}
 </x-app-layout>

@@ -11,9 +11,27 @@ class BookController extends Controller
         return view('admin/addbook');
     }
 
-    public function show($id){
-        $book = Book::findOrFail($id);
-        return view('books.show', compact('book'));
+    public function edit(Book $books){
+        return view('admin.book', ['books' => $books]);
+    }
+
+    public function update(Book $books, Request $request){
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'author' => 'required|string|max:255',
+            'sypnosis' => 'required|string|max:255',
+            'image' => 'required',
+            'year' => 'required|string',
+            'genre' => 'required|string|max:255',
+            
+        ]);
+        $books->update($data);
+        return redirect(route('admin.dashboard'))->with('success', 'Product Updated Successfully');
+    }
+
+    public function destroy(Book $books){
+        $books->delete();
+        return redirect(route('admin.dashboard'))->with('success', 'Product Deleted Successfully');
     }
 
     public function create(){
@@ -45,5 +63,11 @@ class BookController extends Controller
 
         $newBook->save();
         return redirect(route('admin.dashboard'))->with('success', 'Product created successfully.');
+    }
+
+    //user
+    public function show($book_id){
+        $books = Book::find($book_id);
+        return view('book', ['books' => $books]);
     }
 }

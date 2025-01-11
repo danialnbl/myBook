@@ -33,7 +33,12 @@ Route::middleware(['auth','adminMiddleware'])->group(function(){
     // Route::get('/admin/dashboard', [AdminController::class,'showBook'])->name('admin.showBook');
     Route::get('/admin/addbook', [BookController::class,'index'])->name('bookIndex');
 });
-    
+    //admin with book CRUD
     Route::post('/admin/addbook', [BookController::class,'store'])->name('books.store');
-    Route::get('/admin/book/{id}', [BookController::class, 'show'])->name('books.show');
+    Route::get('/admin/book/{books}/edit', [BookController::class, 'edit'])->name('books.edit');
+    Route::put('/admin/book/{books}/update', [BookController::class, 'update'])->name('books.update');
+    Route::delete('/admin/book/{books}/destroy', [BookController::class, 'destroy'])->name('books.destroy');
+
+    //user
+    Route::get('/admin/book/{book_id}/show', [BookController::class, 'show'])->name('books.show');
     

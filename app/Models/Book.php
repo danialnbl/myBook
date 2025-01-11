@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'book_id';
     protected $fillable = [
+        'book_id',
         'name',
         'author',
         'sypnosis',
@@ -15,4 +17,5 @@ class Book extends Model
         'year',
         'genre'
     ];
+    
 }
