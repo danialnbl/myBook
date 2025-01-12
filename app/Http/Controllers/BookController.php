@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book; 
+use App\Models\Review; 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -68,6 +71,7 @@ class BookController extends Controller
     //user
     public function show($book_id){
         $books = Book::find($book_id);
-        return view('book', ['books' => $books]);
+        $review = Review::where('book_id','=', $books->book_id)->get();
+        return view('book')->with('books',$books)->with('review',$review);
     }
 }

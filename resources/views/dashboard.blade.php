@@ -3,6 +3,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+        <a href="{{ route('review.view') }}" style="text-decoration: none; color: inherit;">My Reviews</a>
+        <button></button>
     </x-slot>
     <div class="container my-5">
         <h2 class="text-center mb-4">Book Collection</h2>

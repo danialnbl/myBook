@@ -1,4 +1,3 @@
-@section('content')
 <div class="container my-5">
     <h2 class="text-center mb-4">Book Details</h2>
     <div class="card mx-auto" style="max-width: 800px;">
@@ -21,5 +20,17 @@
             </div>
         </div>
     </div>
+    <h3 class="text-center mb-4">Reviews</h3>
+    <a href="{{ route('review.index', [$books]) }}" class="btn btn-danger">Write Review</a>
+    <table class="table">
+        <tbody>
+            @foreach ($review as $rv)
+                <tr>
+                    <h5>{{$rv->user->name}}</h5>
+                    <h6>{{$rv->rating}}</h6>
+                    <p>{{$rv->review}}</p>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
-@endsection

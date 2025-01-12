@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('review', function (Blueprint $table) {
             $table->id('review_id');
             $table->foreignId('user_id')->nullable()->index();
+            $table->foreignId('book_id')->nullable()->index();
             $table->string('review');
             $table->integer('rating');
         });

@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,5 +41,10 @@ Route::middleware(['auth','adminMiddleware'])->group(function(){
     Route::delete('/admin/book/{books}/destroy', [BookController::class, 'destroy'])->name('books.destroy');
 
     //user
-    Route::get('/admin/book/{book_id}/show', [BookController::class, 'show'])->name('books.show');
+    Route::get('/admin/book/{books}/show', [BookController::class, 'show'])->name('books.show');
+    Route::get('addreview/{books}', [ReviewController::class,'index'])->name('review.index');
+    Route::post('addreview', [ReviewController::class,'store'])->name('review.store');
+
+    Route::get('review',[ReviewController::class,'view'])->name('review.view');
+    
     
