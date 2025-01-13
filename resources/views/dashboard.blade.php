@@ -1,31 +1,33 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-        <a href="{{ route('review.view') }}" style="text-decoration: none; color: inherit;">My Reviews</a>
-        <button></button>
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Dashboard') }}
+            </h2>
+            <div>
+                <a href="{{ route('review.view') }}" class="btn btn-outline-secondary me-2">My Reviews</a>
+            </div>
+        </div>
     </x-slot>
+
     <div class="container my-5">
         <h2 class="text-center mb-4">Book Collection</h2>
-        <table class="table table-borderless text-center">
-            <tbody>
-                @foreach ($books->chunk(6) as $chunk)
-                    <tr>
-                        @foreach ($chunk as $book)
-                            <td>
-                                <a href="{{ route('books.show', [$book]) }}" style="text-decoration: none; color: inherit;">
-                                    <div style="text-align: center;">
-                                        <img src="{{ asset($book->image) }}" alt="{{ $book->name }}" style="height:40vh;width:25vh; display: block; margin: 0 auto;">
-                                        <div>{{ $book->name }}</div>
-                                    </div>
-                                </a>
-                            </td>
-                        @endforeach
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="row g-4">
+            @foreach ($books as $book)
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <div class="card shadow-sm h-100 text-center">
+                        <a href="{{ route('books.show', [$book]) }}" style="text-decoration: none; color: inherit;">
+                            <img src="{{ asset($book->image) }}" 
+                                 alt="{{ $book->name }}" 
+                                 class="card-img-top" 
+                                 style="height: 40vh; object-fit: cover;">
+                            <div class="card-body">
+                                <h6 class="card-title">{{ $book->name }}</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
-
 </x-app-layout>

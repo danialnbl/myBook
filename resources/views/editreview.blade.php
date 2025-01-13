@@ -64,7 +64,7 @@
                         <button 
                             type="submit" 
                             class="px-4 py-2 bg-indigo-600 text-black rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75">
-                            Add Review
+                            Edit Review
                         </button>
                     </div>
                 </form>

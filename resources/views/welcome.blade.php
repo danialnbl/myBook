@@ -9,7 +9,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">myBook</a>
+            <svg class="navbar-brand" href="#" width="30" height="35" viewBox="0 0 78 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M63.6 0H12.7L0.100006 14V14.1V89C0.100006 89.5 0.600006 90 1.10001 90H52.1C58.7 90 64.1 84.6 64.1 78V76V70V26C64.1 19.4 58.7 14 52.1 14H8.10001L15.3 6H63.5C68.2 6 71.9 9.6 71.9 14V62C71.9 62.2 71.9 62.5 71.9 62.7V73.4C75.6 70.9 77.9 66.7 77.9 62V14C78 6.3 71.5 0 63.6 0ZM6.00001 20H52C55.3 20 58 22.7 58 26V78C58 81.3 55.3 84 52 84H6.00001V20Z" fill="black"/>
+            </svg>
+                
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
