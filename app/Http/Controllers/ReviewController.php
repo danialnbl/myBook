@@ -35,4 +35,8 @@ class ReviewController extends Controller
         $reviews = Review::where('user_id','=',$user_id)->get();
         return view('review')->with('reviews',$reviews);
     }
+
+    public function edit(Review $review){
+        return view('editreview', ['review' => $review]);
+    }
 }

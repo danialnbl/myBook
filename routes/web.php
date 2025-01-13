@@ -46,5 +46,7 @@ Route::middleware(['auth','adminMiddleware'])->group(function(){
     Route::post('addreview', [ReviewController::class,'store'])->name('review.store');
 
     Route::get('review',[ReviewController::class,'view'])->name('review.view');
+    // Route::get('editreview/{review}', [ReviewController::class, 'edit'])->name('review.edit');
+    Route::get('/editreview/{review}', [ReviewController::class, 'edit'])->name('review.edit');
     
     
